@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>난수</title></head>
+<body>
+<h3>난수 여러개 생성</h3>
+<hr>
+<script>
+var size = 5;
+var n=[]; // 배열 n 선언
+var second;
+	for(var i=0; i<size; i++) { // 난수 size개 생성
+		var x = Math.random()*100 + 1;
+		n[i] = Math.floor(x);
+	}
+	for(var i=0; i<size; i++) // 배열 출력
+		document.write(n[i] + " ");
+		document.write("<hr>");
+		var big = n[0];
+		for(var i=1; i<size; i++) { // 제일 큰 수 찾기
+			if(n[i] > big) {
+				second = big;
+				big = n[i];
+			} else if(n[i] > second && n[i] < big || big == second) {
+							second = n[i];
+			}
+		}
+				 // 본인이 작성하시오
+		document.write("2번째로 큰 수는 " + second);
+		document.write("<hr>");
+		n.sort(function(a, b){return a-b}); // 숫자 배열 증가순 정렬
+				  // www.w3schools.com/jsref/jsref_sort.asp
+		for(var i=0; i<size; i++) // 배열 출력
+			document.write(n[i] + " ");
+</script>
+</body>
+</html>
